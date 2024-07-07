@@ -3,9 +3,10 @@ let grid = document.createElement("div");
 let body = document.getElementsByTagName("body");
 let button = document.getElementById("btn");
 let eraser = document.getElementById("eraser")
-let size = document.getElementById("size");
+let size = document.querySelector("#size");
+let sliderValue = document.querySelector("#sliderValue") 
 
-
+sliderValue.textContent = `${size.value} * ${size.value}`
 //document.body.appendChild(container);
 //document.container.appendChild(grid);
 
@@ -39,7 +40,8 @@ button.addEventListener("click", (event) => {
     while (container.firstChild) {
         container.removeChild(container.firstChild)
     }
-    createGrid(16);
+    createGrid(size.value);
+    sliderValue.textContent = `${size.value} * ${size.value}`
 })
 
 eraser.addEventListener("click", (event) => {

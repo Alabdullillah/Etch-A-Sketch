@@ -35,3 +35,9 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+#containermini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
