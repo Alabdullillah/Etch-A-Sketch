@@ -6,11 +6,14 @@ let eraser = document.getElementById("eraser")
 let size = document.querySelector("#size");
 let sliderValue = document.querySelector("#sliderValue") 
 
+
+let g = Math.round((Math.random() * 255))
+let b = Math.round((Math.random() * 255))
+let r = Math.round((Math.random() * 255))
+
 sliderValue.textContent = `${size.value} * ${size.value}`
 //document.body.appendChild(container);
 //document.container.appendChild(grid);
-
-
 
 function createGrid(size) {
  
@@ -29,7 +32,7 @@ function createGrid(size) {
         })
 
         griditem.addEventListener("mouseout", () => {
-            griditem.style.backgroundColor = "green";
+            griditem.style.backgroundColor = `rgb(${r},${g},${b})`;
         })
         
     }
