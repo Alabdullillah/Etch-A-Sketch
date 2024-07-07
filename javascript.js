@@ -3,6 +3,7 @@ let grid = document.createElement("div");
 let body = document.getElementsByTagName("body");
 let button = document.getElementById("btn");
 let eraser = document.getElementById("eraser")
+let size = document.getElementById("size");
 
 
 //document.body.appendChild(container);
@@ -20,6 +21,8 @@ function createGrid(size) {
         griditem.style.width = `${600/size}px`;
         griditem.style.height = `${600/size}px`;
         
+        container.appendChild(griditem);
+        
         griditem.addEventListener("mouseover", () => {
             griditem.style.backgroundColor = "black";
         })
@@ -28,23 +31,23 @@ function createGrid(size) {
             griditem.style.backgroundColor = "green";
         })
         
-        container.appendChild(griditem);
-
     }
 }
 
 button.addEventListener("click", (event) => {
     //container.appendChild(grid);
-   
-   let size = prompt("gridsize: ");
-   createGrid(size);
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }
+    createGrid(16);
 })
 
-eraser.addEventListener("click", (event) => {   
-    let cells = document.getElementsByClassName("griditem");
-    cells.remove()
+eraser.addEventListener("click", (event) => {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild)
+    }   
+})
 //    griditem.addEventListener("mouseout", () => {
 //        griditem.style.backgroundColor = "white";
-    })
 //})
 
